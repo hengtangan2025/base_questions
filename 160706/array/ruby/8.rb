@@ -9,4 +9,4 @@ def array8 array
   p hash
 end
 
-array8 [1,2,4,7,3,8,0,9]
+array8 ["ab","cd","ef","gh","ij","kl","mn","or"]

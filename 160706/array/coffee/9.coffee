@@ -5,6 +5,6 @@ array9 = (a1,a2)->
       if a1[i] == a2[j]
         output_array.push(a1[i])
 
-  console.log  output_array
+  console.log output_array
 
 array9([1,2,3],[2,3,4])
