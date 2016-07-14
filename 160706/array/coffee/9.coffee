@@ -7,4 +7,4 @@ array9 = (a1,a2)->
 
   console.log output_array
 
-array9([1,2,3],[2,3,4])
+array9 ["1","2","3"],["2","3","4"]

@@ -33,4 +33,4 @@ def array10 a1,a2
   p output_array
 end
 
-array10 [1,2,5],[5,6]
+array10 ["a","cs","d1"],["d2","cs"]
