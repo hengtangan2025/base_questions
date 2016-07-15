@@ -1,27 +1,30 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 public class array10{
   public static void main(String[] args){
-    ArrayList a1 = new ArrayList();
-    a1.add("a");
-    a1.add("b");
-    a1.add("c");
-    ArrayList a2 = new ArrayList();
-    a2.add("b");
-    a2.add("c");
-    a2.add("d");
-    array_merge(a1,a2);
+    String[] a = { "a", "b", "d" , "e"};
+    String[] b = { "d", "e", "f" };
+    String[] c = new String[a.length + b.length];
+    array_merge(a,b,c);
   }
 
-  public static void array_merge(ArrayList a1,ArrayList a2){
-    ArrayList merge_array = new ArrayList();
-    for(int i = 0; i < a1.size(); i++){
-      merge_array.add(a1.get(i));
+  public static void array_merge(String[] a,String[] b,String[] c){
+    for (int i = 0; i < a.length; i++) {
+     c[i] = a[i];
     }
 
-    for(int j = 0; j < a2.size(); j++){
-      merge_array.add(a2.get(j));
+    for (int j = 0; j < b.length; j++) {
+     c[a.length + j] = b[j];
     }
-    
-    System.out.println(merge_array);
+    Arrays.sort(c);
+    ArrayList output_array = new ArrayList();
+    output_array.add(c[0]);
+    for(int k = 1; k < c.length; k++) {
+      if(c[k] != c[k - 1]){
+        output_array.add(c[k]);
+      }
+    }
+
+    System.out.println(output_array);
   }
 }
