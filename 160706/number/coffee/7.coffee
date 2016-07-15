@@ -1,10 +1,16 @@
+divisible_count = (i,k)->
+  for j in [1..Math.sqrt(i)]
+    if i%j == 0
+      k = k + 1
+      if k == 2
+        break
+  return k
+
 get_prime_number = (n)->
   prime_number_array = []
   for i in [2..n]
     k = 0
-    for j in [2..i]
-      if i%j == 0
-        k = k + 1
+    k = divisible_count i,k
     
     if k == 1
       prime_number_array.push(i) 
@@ -14,9 +20,7 @@ get_prime_number = (n)->
 
 is_prime_number = (n)-> 
   k = 0
-  for i in [2..n]
-    if n%i == 0
-      k = k + 1
+  k = divisible_count n,k
   
   if k == 1
     return true
@@ -27,9 +31,7 @@ get_non_prime_number = (n)->
   non_prime_number_array = []
   for i in [2..n]
     k = 0
-    for j in [2..i]
-      if i%j == 0
-        k = k + 1
+    k = divisible_count i,k
   
     if k != 1
       non_prime_number_array.push(i)
@@ -59,4 +61,4 @@ number7 = (n)->
     prime_factorisation_str = prime_factorisation_str.substring(0,prime_factorisation_str.length - 1)
     console.log  prime_factorisation_str
 
-number7 20
+number7 200

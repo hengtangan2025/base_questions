@@ -1,11 +1,11 @@
 def number10 n,m
   if n <= m
     (n..m).each do |i|
-      p "x" * i
+      puts "x" * i
     end
   else
-    (m..n).sort.reverse.each do |i|
-      p "x" * i 
+    (m..n).sort.each do |i|
+      puts "x" * i 
     end
   end
 end

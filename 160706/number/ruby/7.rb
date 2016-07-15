@@ -1,14 +1,21 @@
+def divisible_count n,k
+  (1..n ** (1.0/2)).each do |j|
+    if n%j == 0
+      k = k + 1
+      if k == 2 
+        break
+      end
+    end
+  end
+  return k
+end
+
 def get_prime_number n
   prime_number_array = []
   (2..n).each do |i|
     k = 0
-    (2..i).each do |j|
-      if i%j == 0
-        k = k + 1
-      end
-    end
-    
-    if k == 1
+    count = divisible_count i,k
+    if count == 1
       prime_number_array.push(i) 
     end
   end
@@ -17,13 +24,9 @@ end
 
 def is_prime_number? n 
   k = 0
-  (2..n).each do |i|
-    if n%i == 0
-      k = k + 1
-    end
-  end
+  count = divisible_count n,k
   
-  if k == 1
+  if count == 1
     return true
   else
     return false
@@ -34,13 +37,9 @@ def get_non_prime_number n
   non_prime_number_array = []
   (2..n).each do |i|
     k = 0
-    (2..i).each do |j|
-      if i%j == 0
-        k = k + 1
-      end
-    end
-    
-    if k != 1
+    count = divisible_count i,k
+  
+    if count != 1
       non_prime_number_array.push(i)
     end
   end
@@ -74,4 +73,4 @@ def number7 n
   end
 end
 
-number7 20
+number7 2000

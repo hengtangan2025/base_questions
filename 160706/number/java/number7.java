@@ -17,7 +17,7 @@ public class number7{
       for(int j = 0; j < b.size(); j++){
         int non_prime_number = (int)a.get(i);
         int prime_number = (int)b.get(j);
-        get_prime_factorisation(non_prime_number,prime_number,prime_factorisation_array);
+        prime_factorisation_array = get_prime_factorisation(non_prime_number,prime_number,prime_factorisation_array);
       }
       for(int k = 0; k < prime_factorisation_array.size(); k++){
         if(k == prime_factorisation_array.size() - 1){
@@ -30,36 +30,39 @@ public class number7{
     }
   }
 
-  public static void get_prime_factorisation(int non_prime_number, int prime_number,ArrayList prime_factorisation_array){
+  public static ArrayList get_prime_factorisation(int non_prime_number, int prime_number,ArrayList prime_factorisation_array){
     if(non_prime_number%prime_number == 0){
       prime_factorisation_array.add(prime_number);
       int next_number = non_prime_number/prime_number;
-      int sum = 0;
-      is_prime_number(next_number,sum);
-      if(sum == 1){
+      if(next_number == prime_number){
         prime_factorisation_array.add(next_number);
-      }else{
+      }
+      int sum = 0;
+      sum = divisible_count(next_number,sum);
+      if(sum != 1){
         get_prime_factorisation(next_number,prime_number,prime_factorisation_array);
       }
     }
+
+    return prime_factorisation_array;
   }
 
-  public static void is_prime_number(int n, int k){
-    for(int i = 2; i <= n; i++){
-      if(n%i == 0){
+  public static Integer divisible_count(int n, int k){
+    for(int j = 1; j <= (int)Math.sqrt(n); j++){
+      if(n%j == 0){
         k = k + 1;
+        if(k == 2){
+          break;
+        }
       }
     }
+    return k;
   }
 
   public static void get_prime_number(int n,ArrayList array){
     for(int i = 2; i <= n; i++){
       int k = 0;
-      for(int j = 2; j <= i; j++){
-        if(i%j == 0){
-          k = k + 1;
-        }
-      }
+      k = divisible_count(i,k);
 
       if(k == 1){
         array.add(i);
@@ -70,11 +73,7 @@ public class number7{
   public static void get_non_prime_number(int n,ArrayList array){
     for(int i = 2; i <= n; i++){
       int k = 0;
-      for(int j = 2; j <= i; j++){
-        if(i%j == 0){
-          k = k + 1;
-        }
-      }
+      k = divisible_count(i,k);
 
       if(k != 1){
         array.add(i);

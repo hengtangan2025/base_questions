@@ -1,8 +1,8 @@
 def array7 array
   hash = {}
-  (0..array.length - 1).each do |i|
+  array.each do |i|
     hash[array[i]] = 0
-    (0..array.length - 1).each do |j|
+    array.each do |j|
       if array[i] == array[j]
         hash[array[i]] += 1
       end

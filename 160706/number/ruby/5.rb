@@ -1,9 +1,12 @@
 def number5 n
   (2..n).each do |i|
     k = 0
-    (2..i).each do |j|
+    (1..i ** (1.0/2)).each do |j|
       if i%j == 0
         k = k + 1
+        if k == 2 
+          break
+        end
       end
     end
     
@@ -13,4 +16,4 @@ def number5 n
   end
 end
 
-number5 20
+number5 1000

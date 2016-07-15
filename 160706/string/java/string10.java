@@ -14,7 +14,8 @@ public class string10{
     Pattern pattern =  Pattern.compile(n);
     Matcher matcher = pattern.matcher(input_string);
     if(matcher.find()){
-      return matcher.start();
+      String match_str = matcher.group();
+      return match_str.indexOf(match_str.charAt(0));
     }else{
       return -1;
     } 

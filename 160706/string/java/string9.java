@@ -6,7 +6,7 @@ public class string9{
 
   public static void print_char(String input_string){
     for(int i = 0; i < input_string.length(); i++){
-      System.out.println(input_string.charAt(i));
+      System.out.println((int)input_string.charAt(i));
     }    
   }
 }
