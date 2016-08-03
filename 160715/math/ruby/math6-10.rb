@@ -29,3 +29,10 @@ def math6 input_number,n
 end
 
 math6 62,7
+
+puts "====第7题===="
+def math7 n
+  puts 2.to_f/(2**n).to_f
+end
+
+math7 3

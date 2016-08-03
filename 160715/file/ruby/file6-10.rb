@@ -31,16 +31,12 @@ end
 
 file8 "file/ruby/test1.rb"
 
-# p "====第9题===="
-# def file9 filename,n
-#   f=File.open(File.join(filename), "w+")
-#   (1..n).each do |i|
-#     f.puts(i)
-#   end
-#   f.close
-# end
+p "====第9题===="
+def file9 path
+  puts File.dirname(path)
+end
 
-# file9 "test4.rb", 5
+file9 "file/ruby/test1.rb"
 
 p "====第10题===="
 def file10 filename

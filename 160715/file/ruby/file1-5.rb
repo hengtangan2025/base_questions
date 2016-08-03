@@ -3,6 +3,7 @@ def file1 filename,string
   file = File.open(File.join(filename), "w+")
   file.puts(string)
   file.close
+  p "创建成功"
 end
 
 file1 "test1.rb", "123"
@@ -29,6 +30,7 @@ def file4 filename,n
     f.puts(i)
   end
   f.close
+  p "创建成功"
 end
 
 file4 "test4.rb", 5
@@ -36,8 +38,10 @@ file4 "test4.rb", 5
 p "====第5题===="
 def file5 filename
   File.new(filename, "w+")
+  p "创建成功 5秒后删除"
   sleep 5
   File.delete(filename)
+  p "已删除"
 end
 
 file5 "test5.rb"
